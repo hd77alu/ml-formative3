@@ -28,11 +28,11 @@ pip install pandas numpy matplotlib jupyter
 
 ## Dataset Setup
 
-### Part 1: IMDB Movies Dataset
-1. The IMDB Movies dataset in the `imdb_movies_p1.csv` file  contains information about movies, including their names, release dates, user ratings, genres, overviews, cast and crew members, original titles, production status, original languages, budgets, revenues, and countries of origin. We used this data to explore the relationship between budget and revenue, and predicting the success of future movies.
-2. Data source: [Kaggle: IMDIMDB Movies Dataset](https://www.kaggle.com/datasets/ashpalsingh1525/imdb-movies-dataset?resource=download)
+### Part 1: IMDb Movies Dataset
+1. The IMDb Movies dataset in the `imdb_movies_p1.csv` file  contains information about movies, including their names, release dates, user ratings, genres, overviews, cast and crew members, original titles, production status, original languages, budgets, revenues, and countries of origin. We used this data to explore the relationship between budget and revenue, and to predict the success of future movies.
+2. Data source: [Kaggle: IMDb Movies Dataset](https://www.kaggle.com/datasets/ashpalsingh1525/imdb-movies-dataset?resource=download)
 
-### Part 2: IMDB Reviews Dataset
+### Part 2: IMDb Reviews Dataset
 1. The IMDB Movie Reviews dataset contains about 50K movie reviews that we used to apply Bayesian probability for text analytics.
 2. Data source: [IMDB Movie Reviews Dataset](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews)
 
@@ -84,7 +84,7 @@ ml-formative3/
 - Analyzes correlation between movie budget and revenue (ρ = 0.6709)
 
 ### Part 2: Bayesian Probability (In Progress)
-- Uses IMDB Movie Reviews dataset
+- Uses IMDb Movie Reviews dataset
 - Selects keywords indicating positive/negative sentiment
 - Implements Bayes' Theorem from scratch
 - Calculates posterior probabilities P(Positive|keyword)
