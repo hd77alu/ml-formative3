@@ -21,22 +21,46 @@ git clone https://github.com/hd77alu/ml-formative3.git
 cd ml-formative3
 ```
 
-### Step 2: Install Required Packages
+### Step 2: Install Pipenv (if not already installed)
 ```bash
-pip install pandas numpy matplotlib jupyter
+pip install pipenv
 ```
+
+### Step 3: Create the Virtual Environment and Install Packages
+This will create a virtual environment and install all dependencies declared in the `Pipfile`:
+```bash
+pipenv install
+```
+
+### Step 4: Activate the Virtual Environment
+```bash
+pipenv shell
+```
+Your prompt will change to `(ml-formative3) ...`, indicating the environment is active.
+
+### Step 5: Register the Kernel with Jupyter
+Install the virtual environment as a named Jupyter kernel so it appears in Jupyter Notebook, JupyterLab, and VS Code:
+```bash
+python3 -m ipykernel install --user --name ml-formative3 --display-name "Python (ML Formative 3)"
+```
+This registers the kernel at `~/.local/share/jupyter/kernels/ml-formative3`.
+
+### Step 6: Select the Kernel
+When opening `ml_formative3_g6.ipynb`, select **"Python (ML Formative 3)"** as the kernel:
+- **Jupyter Notebook / JupyterLab**: use the *Kernel → Change Kernel* menu.
+- **VS Code**: click the kernel selector in the top-right corner of the notebook and choose **"Python (ML Formative 3)"**.
 
 ## Dataset Setup
 
 ### Part 1: IMDb Movies Dataset
-1. The IMDb Movies dataset in the `imdb_movies_p1.csv` file  contains information about movies, including their names, release dates, user ratings, genres, overviews, cast and crew members, original titles, production status, original languages, budgets, revenues, and countries of origin. We used this data to explore the relationship between budget and revenue, and to predict the success of future movies.
+1. The IMDb Movies dataset in the `data/imdb_movies_p1.csv` file  contains information about movies, including their names, release dates, user ratings, genres, overviews, cast and crew members, original titles, production status, original languages, budgets, revenues, and countries of origin. We used this data to explore the relationship between budget and revenue, and to predict the success of future movies.
 2. Data source: [Kaggle: IMDb Movies Dataset](https://www.kaggle.com/datasets/ashpalsingh1525/imdb-movies-dataset?resource=download)
 
 ### Part 2: IMDb Reviews Dataset
-1. The IMDB Movie Reviews dataset contains about 50K movie reviews that we used to apply Bayesian probability for text analytics.
+1. The IMDB Movie Reviews dataset in the `data/imdb_movie_reviews.csv` file contains about 50K movie reviews that we used to apply Bayesian probability for text analytics.
 2. Data source: [IMDB Movie Reviews Dataset](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews)
 
-## Running the Notebook
+## Running the Notebook (remember to select the correct kernel)
 
 ### Option 1: Using Jupyter Notebook (Local)
 ```bash
