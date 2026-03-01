@@ -92,34 +92,49 @@ jupyter lab
 ```
 ml-formative3/
 │
-├── ml_formative3_g6.ipynb    # Main Jupyter notebook with all implementations
-├── imdb_movies_p1.csv         # Dataset for Part 1 (Budget vs Revenue)
-├── IMDB-Dataset.csv           # Dataset for Part 2 (Sentiment Analysis)
-├── README.md                  # This file
-
+├── data/
+│   ├── imdb_movies_p1.csv        # Dataset for Part 1 (Budget vs Revenue)
+│   └── imdb_movie_reviews.csv    # Dataset for Part 2 (Sentiment Analysis)
+├── ml_formative3_g6.ipynb        # Main Jupyter notebook with all implementations
+├── Pipfile                        # Pipenv dependencies specification
+├── Pipfile.lock                   # Locked versions of dependencies
+└── README.md                      # This file
 ```
 
 ## Assignment Overview
 
 ### Part 1: Probability Distributions
-- Implements bivariate normal distribution from scratch
-- Calculates PDF values for 9,909 movie data points
-- Creates contour plot (2D) and surface plot (3D) visualizations
-- Analyzes correlation between movie budget and revenue (ρ = 0.6709)
+- Implements bivariate normal distribution from scratch (no scipy.stats or sklearn)
+- Calculates PDF values for 2,668 US movie data points after rigorous filtering
+- Creates contour plot (2D) and surface plot (3D) visualizations using 100×100 meshgrid
+- Analyzes correlation between movie budget and revenue (ρ = 0.6903)
+- Key statistics:
+  - Sample: 2,668 US movies (USD currency standardized)
+  - Mean Budget: $68.1M | Mean Revenue: $278.1M
+- Data quality: Applied US-only filter, missing value removal, and bottom 1% percentile filtering
 
-### Part 2: Bayesian Probability (In Progress)
-- Uses IMDb Movie Reviews dataset
-- Selects keywords indicating positive/negative sentiment
-- Implements Bayes' Theorem from scratch
-- Calculates posterior probabilities P(Positive|keyword)
+### Part 2: Bayesian Probability
+- Uses IMDb Movie Reviews dataset (50K movie reviews)
+- Selected keywords through statistical analysis:
+  - Positive sentiment: "great", "very", "best", "love"
+  - Negative sentiment: "worst", "nothing", "why", "waste"
+- Implements Bayes' Theorem from scratch using only basic Python operations
+- Calculates posterior probabilities P(Positive|keyword) for each selected keyword
+- Key findings:
+  - Reviews containing "great": 70%+ are positive
+  - Reviews containing "worst": 92.3%+ are negative
 
-### Part 3: Gradient Descent Manual Calculation (Pending)
+### Part 3: Gradient Descent Manual Calculation
 - Manual calculation of gradient descent updates
 - Uses linear regression: y = mx + b
 - Initial parameters: m=-1, b=1, learning rate=0.1
 - Data points: (1,3) and (3,6)
+- m moved from -1 → 1.7 → 1.26 → 1.34 → 1.334.
+- b moved from 1 → 2.1 → 1.9 → 1.916 → 1.897.
+- MSE moved from 36.5 → 1.04 → 1.9 → 0.064 → 0.0348 → 0.0318.
+- Across the four iterations, (m,b) steadily adjusted toward values that better fit the data points.
 
-### Part 4: Gradient Descent in Code (Pending)
+### Part 4: Gradient Descent in Code
 - Python implementation of Part 3 calculations
 - Visualizes parameter updates over iterations
 - Plots m, b, and Error changes using Matplotlib
